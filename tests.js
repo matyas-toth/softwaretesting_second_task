@@ -45,5 +45,15 @@
       });
     });
 
+    QUnit.test("érvénytelen bemenetre üres sztring", function (assert) {
+      const inputs = [
+        0, -1, -3, 1.5, 3999.5, 4000, 5000,
+        "14", "1", "", undefined, null, NaN,
+        Infinity, -Infinity, true, false, {}, [], 1n
+      ];
+      inputs.forEach(input => {
+        assert.strictEqual(toRoman(input), "", String(input));
+      });
+    });
   });
 })();
