@@ -24,5 +24,26 @@
       });
     });
 
+    QUnit.test("kivonásos alakok", function (assert) {
+      const cases = [
+        [4, "IV"], [9, "IX"], [40, "XL"],
+        [90, "XC"], [400, "CD"], [900, "CM"]
+      ];
+      cases.forEach(([number, expected]) => {
+        assert.strictEqual(toRoman(number), expected, String(number));
+      });
+    });
+
+    QUnit.test("összetett számok és felső határ", function (assert) {
+      const cases = [
+        [14, "XIV"], [19, "XIX"], [44, "XLIV"], [49, "XLIX"],
+        [99, "XCIX"], [444, "CDXLIV"], [1994, "MCMXCIV"],
+        [2026, "MMXXVI"], [3888, "MMMDCCCLXXXVIII"], [3999, "MMMCMXCIX"]
+      ];
+      cases.forEach(([number, expected]) => {
+        assert.strictEqual(toRoman(number), expected, String(number));
+      });
+    });
+
   });
 })();
