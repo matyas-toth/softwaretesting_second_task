@@ -15,6 +15,10 @@ const ROMAN_STEPS = [
 ];
 
 function toRoman(num) {
+  if (!Number.isInteger(num) || num < 1 || num > 3999) {
+    return "";
+  }
+
   let result = "";
   let remaining = num;
 
