@@ -1,0 +1,10 @@
+{
+  "name": "softwaretesting-second-task",
+  "private": true,
+  "scripts": {
+    "test": "qunit tests.js"
+  },
+  "devDependencies": {
+    "qunit": "^2.26.0"
+  }
+}
