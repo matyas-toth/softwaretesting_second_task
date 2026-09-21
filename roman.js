@@ -18,17 +18,19 @@ function toRoman(num) {
   if (!Number.isInteger(num) || num < 1 || num > 3999) {
     return "";
   }
+  return appendRoman(num, 0);
+}
 
-  let result = "";
-  let remaining = num;
-
-  for (const [value, symbol] of ROMAN_STEPS) {
-    const count = Math.floor(remaining / value);
-    result += symbol.repeat(count);
-    remaining %= value;
+function appendRoman(remaining, index) {
+  if (remaining === 0) {
+    return "";
   }
 
-  return result;
+  const [value, symbol] = ROMAN_STEPS[index];
+  if (remaining < value) {
+    return appendRoman(remaining, index + 1);
+  }
+  return symbol + appendRoman(remaining - value, index);
 }
 
 if (typeof module !== "undefined" && module.exports) {
